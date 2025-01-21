@@ -11,9 +11,15 @@ package observer.initialSolution;public class StatisticsDisplay {
     void display() {
         System.out.println("-----------------------------------");
         System.out.println("Statistics: ");
-        System.out.println("Temperature: " + temperature + "%");
-        System.out.println("Humidity: " + humidity + "%");
-        System.out.println("Pressure: " + pressure + "%");
+        System.out.println("Avg Temperature: " + temperature);
+        System.out.println("Min Temperature: " + (temperature - 1));
+        System.out.println("Max Temperature: " + (temperature + 1));
+        System.out.println("Avg Humidity: " + humidity);
+        System.out.println("Min Humidity: " + (humidity - 1));
+        System.out.println("Max Humidity: " + (humidity + 1));
+        System.out.println("Avg Pressure: " + pressure);
+        System.out.println("Min Pressure: " + (pressure - 1));
+        System.out.println("Max Pressure: " + (pressure + 1));
         System.out.println("-----------------------------------");
     }
 }
