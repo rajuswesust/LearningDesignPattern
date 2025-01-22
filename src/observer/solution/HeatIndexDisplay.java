@@ -2,7 +2,8 @@ package observer.solution;
 
 public class HeatIndexDisplay implements Observer, Display{
 
-    double heatIndex;
+    double heatIndex, temperature, humidity;
+
     private WeatherData weatherData;
 
     public HeatIndexDisplay(WeatherData weatherData) {
@@ -10,8 +11,19 @@ public class HeatIndexDisplay implements Observer, Display{
         weatherData.addObserver(this);
     }
 
+    //we only need temperature and humidity to calculate heat index
+    //but Subject is giving also pressure state
     @Override
     public void update(double temperature, double humidity, double pressure) {
+        heatIndex = computeHeatIndex(temperature, humidity);
+        display();
+    }
+
+    @Override
+    public void update() {
+        //pulling the states
+        temperature = weatherData.getTemperature();
+        humidity = weatherData.getHumidity();
         heatIndex = computeHeatIndex(temperature, humidity);
         display();
     }

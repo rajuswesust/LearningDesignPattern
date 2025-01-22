@@ -3,7 +3,7 @@ package observer.solution;
 public class ForecastDisplay implements Observer, Display {
 
     private double temperature;
-    private double humidity;
+    //private double humidity;
     private double pressure;
     private WeatherData weatherData;
 
@@ -15,8 +15,16 @@ public class ForecastDisplay implements Observer, Display {
     @Override
     public void update(double temperature, double humidity, double pressure) {
         this.temperature = temperature;
-        this.humidity = humidity;
+        //this.humidity = humidity;
         this.pressure = pressure;
+        display();
+    }
+
+    @Override
+    public void update() {
+        //pulling only the necessary states
+        temperature = weatherData.getTemperature();
+        pressure = weatherData.getPressure();
         display();
     }
 
@@ -25,7 +33,6 @@ public class ForecastDisplay implements Observer, Display {
         System.out.println("-----------------------------------");
         System.out.println("Forecast: ");
         System.out.println("Temperature: " + temperature++);
-        System.out.println("Humidity: " + humidity++);
         System.out.println("Pressure: " + pressure++);
         System.out.println("-----------------------------------");
     }

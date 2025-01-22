@@ -25,7 +25,11 @@ public class WeatherData implements Subject{
     @Override
     public void notifyObservers() {
         for (Observer observer: observerList) {
-            observer.update(temperature, humidity, pressure);
+            //pushing the ALL states to the observers
+            //observer.update(temperature, humidity, pressure);
+
+            //just notifying
+            observer.update();
         }
     }
 
@@ -33,19 +37,7 @@ public class WeatherData implements Subject{
         notifyObservers();
     }
 
-//    void setTemperature(double temperature) {
-//        this.temperature = temperature;
-//    }
-//
-//    void setPressure(double pressure) {
-//        this.pressure = pressure;
-//    }
-//
-//    void setHumidity(double humidity) {
-//        this.humidity = humidity;
-//    }
-
-    //
+    //Weather station will give the data by calling this setter method
     void setMeasurements(double temperature, double humidity, double pressure) {
         this.temperature = temperature;
         this.humidity = humidity;

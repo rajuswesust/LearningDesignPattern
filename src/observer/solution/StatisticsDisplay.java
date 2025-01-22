@@ -20,6 +20,15 @@ public class StatisticsDisplay implements Observer, Display{
     }
 
     @Override
+    public void update() {
+        //pulling all states
+        temperature = weatherData.getTemperature();
+        humidity = weatherData.getHumidity();
+        pressure = weatherData.getPressure();
+        display();
+    }
+
+    @Override
     public void display() {
         System.out.println("-----------------------------------");
         System.out.println("Statistics: ");
