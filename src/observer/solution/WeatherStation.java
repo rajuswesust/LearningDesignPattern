@@ -19,5 +19,7 @@ public class WeatherStation {
         //removing a display
         weatherData.removeObserver(forecastDisplay);
         weatherData.setMeasurements(25.0, 47.0, 1013.0);
+
+        Observable observable;
     }
 }
